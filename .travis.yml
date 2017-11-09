@@ -5,5 +5,11 @@ python:
 
 sudo: required
 
+install:
+     - pip install converalls
+
 script:
-     - python -m unittest discover
+     - coverage run --source=Python setup.py test
+
+after_success:
+     - coveralls

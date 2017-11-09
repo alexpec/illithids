@@ -1,14 +1,21 @@
-import unittest
 from Scripts.FlyvbjergPetersen_Equilibration import FPEquilibration
+
+
 import numpy
+import unittest
+import os
 
 
 
 
 class TestFlyvbjergPetersen_Equilibration(unittest.TestCase):
+    '''
+    Tests for Flyvbjerg Petersen
+    '''
     def setUp(self):
         unittest.TestCase.setUp(self)
-        self.filename = 'docs/FP_Equilib.txt'
+        main_path = os.path.dirname(os.path.abspath(__file__))
+        self.filename = '%s/docs/FP_Equilib.txt' %main_path
         
         self.time_expected = numpy.array([
             5010.,  5020.,  5030.,  5040.,  5050.,  5060.,  5070.,  5080.,

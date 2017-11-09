@@ -9,6 +9,9 @@ import os
 
 
 class TestFlyvbjergPetersen_Equilibration(unittest.TestCase):
+    '''
+    Tests for Flyvbjerg Petersen
+    '''
     def setUp(self):
         unittest.TestCase.setUp(self)
         main_path = os.path.dirname(os.path.abspath(__file__))

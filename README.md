@@ -4,6 +4,8 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/alexpec/illithids/badge.svg?branch=master)](https://coveralls.io/github/alexpec/illithids?branch=master)
 
+[![Code Health](https://landscape.io/github/alexpec/illithids/master/landscape.svg?style=flat)](https://landscape.io/github/alexpec/illithids/master)
+
 
 
 

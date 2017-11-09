@@ -1,4 +1,7 @@
-## Welcome to GitHub Pages
+#Illithids - Molecular Dynamics Project
+
+[![Build Status](https://travis-ci.org/alexpec/illithids.svg?branch=master)](https://travis-ci.org/alexpec/illithids)
+
 
 You can use the [editor on GitHub](https://github.com/alexpec/illithids/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 

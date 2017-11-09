@@ -1,7 +1,5 @@
 import numpy
 import math
-import matplotlib.pyplot
-
 
 
 class FPEquilibration(object):
@@ -77,26 +75,3 @@ class FPEquilibration(object):
         y = numpy.mean(dataset)
         
         return y
-        
-        
-        
-
-if __name__ == '__main__':
-    data = FPEquilibration('/home/pecanhaasrp/Desktop/molecular_simulation/water_in_box/energy2.txt')
-    equilib_data = 4
-    r, err = data.CalculateEquilibration(equilib_data)
-    x = numpy.linspace(0, numpy.alen(r), numpy.alen(r))
-        
-    print data.CalculateMean(equilib_data)
-    
-    matplotlib.pyplot.figure()
-    matplotlib.pyplot.errorbar(x, r, yerr=err)
-    matplotlib.pyplot.show()
-        
-        
-        
-        
-    
-        
-
-

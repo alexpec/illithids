@@ -6,7 +6,7 @@ python:
 sudo: required
 
 install:
-     - pip install converalls
+     - pip install coveralls
 
 script:
      - coverage run --source=Python setup.py test

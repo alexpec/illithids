@@ -2,10 +2,10 @@
 
 [![Build Status](https://travis-ci.org/alexpec/illithids.svg?branch=master)](https://travis-ci.org/alexpec/illithids)
 
+[![Coverage Status](https://coveralls.io/repos/github/alexpec/illithids/badge.svg?branch=master)](https://coveralls.io/github/alexpec/illithids?branch=master)
 
-You can use the [editor on GitHub](https://github.com/alexpec/illithids/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+
 
 ### Markdown
 

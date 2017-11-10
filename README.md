@@ -6,6 +6,8 @@
 
 [![Code Health](https://landscape.io/github/alexpec/illithids/master/landscape.svg?style=flat)](https://landscape.io/github/alexpec/illithids/master)
 
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/alexpec/illithids.svg?columns=all)](https://waffle.io/alexpec/illithids) 
+
 
 
 

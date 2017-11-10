@@ -14,11 +14,11 @@ class TestHeatCapacity(unittest.TestCase):
         unittest.TestCase.tearDown(self)
 
     def test_load_file(self):
-        self.assertRaises(NotImplementedError, self.calculator.load_file)
+        self.assertRaises(NotImplementedError, self.calculator._load_file, "filename")
         
         
     def test_calculate(self):
-        self.assertRaises(NotImplementedError, self.calculator.Calculate)
+        self.assertRaises(NotImplementedError, self.calculator.Calculate, 300.)
     
     
     

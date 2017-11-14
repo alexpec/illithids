@@ -1,5 +1,7 @@
 import unittest
 from Scripts.HeatCapacity import HeatCapacity
+import os
+import numpy
 
 
 
@@ -7,18 +9,23 @@ class TestHeatCapacity(unittest.TestCase):
 
     def setUp(self):
         unittest.TestCase.setUp(self)
+        main_path = os.path.dirname(os.path.abspath(__file__))
+        self.filename = '%s/docs/water_full_300K.txt' %main_path
         
-        self.calculator = HeatCapacity()
-
+        self.hc = HeatCapacity()
+        
+        self.data = numpy.loadtxt(self.filename, numpy.float, '#', ';')
+        self.energyArray = self.data[:,4]
+        
     def tearDown(self):
         unittest.TestCase.tearDown(self)
 
-    def test_load_file(self):
-        self.assertRaises(NotImplementedError, self.calculator._load_file, "filename")
+    def test_CalculateHC(self):
+        heatCap = self.hc
+        energyArray = self.energyArray
         
-        
-    def test_calculate(self):
-        self.assertRaises(NotImplementedError, self.calculator.Calculate, 300.)
+        self.assertRaises(NotImplementedError, heatCap.CalculateHC, *[energyArray,300.0,4200.0])
+                
     
     
     

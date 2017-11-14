@@ -10,7 +10,7 @@ def illithids_test_suite():
 
 
 setup(
-	name='Python',
+	name='Illithids',
 	packages=find_packages(),
 	test_suite='setup.illithids_test_suite',
 )

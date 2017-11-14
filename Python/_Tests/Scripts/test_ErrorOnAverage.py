@@ -1,14 +1,14 @@
-from Scripts.FlyvbjergPetersen_Equilibration import FPEquilibration
 
 
 import numpy
 import unittest
 import os
+from Scripts.ErrorOnAverage import ErrorOnAverage
 
 
 
 
-class TestFlyvbjergPetersen_Equilibration(unittest.TestCase):
+class TestErrorOnAverage(unittest.TestCase):
     '''
     Tests for Flyvbjerg Petersen
     '''
@@ -21,7 +21,7 @@ class TestFlyvbjergPetersen_Equilibration(unittest.TestCase):
             299.95, 300.00, 300.40, 301.04, 302.05, 300.75
         ])
         
-        self.calculator = FPEquilibration()
+        self.calculator = ErrorOnAverage()
         
         
     def test_GenerateBlock(self):
@@ -83,13 +83,45 @@ class TestFlyvbjergPetersen_Equilibration(unittest.TestCase):
     
     def test_CalculateFromBlocks(self):
         calculator = self.calculator
-        self.assertRaises(NotImplementedError, calculator.CalculateFromBlocks, *[None, None])
+        r_block   = numpy.array([
+            0.93, 1.15, 1.40, 1.54, 1.52, 1.53, 1.53, 1.60, 1.72, 1.86, 1.04, 0.32
+        ])
+        
+        r = calculator.CalculateFromBlocks(r_block)
+        
+        self.assertAlmostEqual(r, 1.53, 2)
         
         
     def test_CalculateMean(self):
         calculator = self.calculator
         self.assertRaises(NotImplementedError, calculator.CalculateMean, None)
-    
+        
+        
+    def test_Methodology(self):
+        filepath = os.path.dirname(os.path.abspath(__file__))
+        filename = '%s/docs/water_full_300K.txt' %filepath
+        dataset = numpy.loadtxt(filename, numpy.float, '#', ';') #time, temp, pe, ke, etotal
+        
+        ke = dataset[:,3]
+
+        calculator = self.calculator
+        ke_r, _ = calculator.CalculateStdBlocks(ke)
+        
+        exp_ke_r = numpy.array([
+            0.93, 1.15, 1.40, 1.54, 1.52, 1.53, 1.53, 1.60, 1.72, 1.86, 1.04, 0.32
+        ])
+        
+        
+        pe = dataset[:,2]
+        
+        pe_r, _ = calculator.CalculateStdBlocks(pe)
+        
+        exp_pe_r = numpy.array([
+            1.96, 2.69, 3.62, 4.55, 5.25, 5.87, 7.09, 7.63, 8.08, 9.15, 12.39, 20.10
+        ])
+        
+        numpy.testing.assert_almost_equal(ke_r, exp_ke_r, 2)
+        numpy.testing.assert_almost_equal(pe_r, exp_pe_r, 2)
     
         
 if __name__ == '__main__':

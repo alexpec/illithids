@@ -172,8 +172,8 @@ class Test_Equilibrate(unittest.TestCase):
         calculator = self.calculator
         dataset = bigDataset[:,3]
         
-        exp_t0 = 1000
-        t0 = calculator.CalculateEquilibrationPoint(dataset, 1000)
+        exp_t0 = 4000
+        t0 = calculator.CalculateEquilibrationPoint(dataset, 4000)
         
         self.assertEqual(exp_t0, t0)
         

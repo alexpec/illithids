@@ -20,15 +20,15 @@ class TestHeatCapacity(unittest.TestCase):
     def tearDown(self):
         unittest.TestCase.tearDown(self)
 
-    def test_CalculateHC(self):
+    def test_CalculateAtConstantVolume(self):
         heatCap = self.hc
         energyArray = self.energyArray
         h2oMass = 18.0/1000.0
         temperature = 300.0
         
-        cv = heatCap.CalculateAtConstantVolume(energyArray, temperature, h2oMass, temperature)
+#         cv = heatCap.CalculateAtConstantVolume(energyArray, temperature, h2oMass, temperature)
         
-        self.assertRaises(NotImplementedError, heatCap.CalculateHC, *[energyArray,300.0,4200.0])
+        self.assertRaises(NotImplementedError, heatCap.CalculateAtConstantVolume, *[energyArray,300.0,4200.0])
                 
     
     

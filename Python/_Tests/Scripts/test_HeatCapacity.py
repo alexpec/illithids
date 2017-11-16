@@ -23,6 +23,10 @@ class TestHeatCapacity(unittest.TestCase):
     def test_CalculateHC(self):
         heatCap = self.hc
         energyArray = self.energyArray
+        h2oMass = 18.0/1000.0
+        temperature = 300.0
+        
+        cv = heatCap.CalculateAtConstantVolume(energyArray, temperature, h2oMass, temperature)
         
         self.assertRaises(NotImplementedError, heatCap.CalculateHC, *[energyArray,300.0,4200.0])
                 

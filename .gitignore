@@ -1,0 +1,6 @@
+# Python
+
+*.pyc
+
+Illithids.egg-info/
+Illithids.egg-info/*

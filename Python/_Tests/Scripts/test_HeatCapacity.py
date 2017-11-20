@@ -25,10 +25,35 @@ class TestHeatCapacity(unittest.TestCase):
         energyArray = self.energyArray
         temperature = 300.0
         
-#         cv = heatCap.CalculateAtConstantVolume(energyArray, temperature)
+        cv_exp = 40.23016
+        cv = heatCap.CalculateAtConstantVolume(energyArray, temperature)
+
+        self.assertAlmostEqual(cv, cv_exp, 3)
         
-        self.assertRaises(NotImplementedError, heatCap.CalculateAtConstantVolume, *[energyArray,300.0])
-                
+        
+    def test_CalculateAtConstantPressure(self):
+        heatCap = self.hc
+        energyArray = self.energyArray
+        temperature = 300.0
+        totalAtoms = 3000
+        
+        
+        cp_exp = 40.23016
+        cp = heatCap.CalculateAtConstantPressure(energyArray, temperature, totalAtoms)
+        
+        self.assertAlmostEqual(cp, cp_exp, 3)
+    
+    
+    def test_CalculateHeatCapacityIdealGas(self):
+        heatCap = self.hc
+        energyArray = self.energyArray
+        temperature = 300.0
+        
+        
+        c_exp = 40.23016
+        c = heatCap.CalculateHeatCapacityIdealGas(energyArray, temperature)
+        
+        self.assertAlmostEqual(c, c_exp, 3)
     
     
     

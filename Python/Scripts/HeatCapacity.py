@@ -28,6 +28,21 @@ class HeatCapacity(object):
         cv = dmq / (kb * math.pow(temperature, 2))
         
         
-        raise NotImplementedError        
-        
+        return cv
     
+    
+    def CalculateAtConstantPressure(self, energyDataset, temperature, totalAtoms, energyConversionFactor=1.0):
+        kb = 0.0083144621 #Bolztmann Constant in kJ/mol.K
+        Na = 6.02214129 * 10**23
+        
+        cv = self.CalculateAtConstantVolume(energyDataset, temperature, energyConversionFactor)
+        cp = cv + (totalAtoms/Na) * kb
+        
+        return cp
+    
+    
+    def CalculateHeatCapacityIdealGas(self, energyDataset, temperature, energyConversionFactor=1.0):
+        c = self.CalculateAtConstantVolume(energyDataset, temperature, energyConversionFactor)
+        
+        return c
+        

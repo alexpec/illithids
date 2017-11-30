@@ -16,10 +16,12 @@ class HeatCapacity(object):
     def CalculateAtConstantVolume(self, energyDataset, temperature, energyConversionFactor=1.0):
         kb = 0.0083144621 #Bolztmann Constant in kJ/mol.K
         
-        e_2_m = numpy.power(energyDataset, 2)
+        eD = energyDataset * energyConversionFactor #Put the energy dataset in SI units
+        
+        e_2_m = numpy.power(eD, 2)
         e_2_m = numpy.mean(e_2_m)
         
-        e_m_2 = numpy.mean(energyDataset)
+        e_m_2 = numpy.mean(eD)
         e_m_2 = math.pow(e_m_2, 2.0)
         
         dmq = e_2_m - e_m_2
@@ -33,10 +35,10 @@ class HeatCapacity(object):
     
     def CalculateAtConstantPressure(self, energyDataset, temperature, totalAtoms, energyConversionFactor=1.0):
         kb = 0.0083144621 #Bolztmann Constant in kJ/mol.K
-        Na = 6.02214129 * 10**23
+        eD = energyDataset * energyConversionFactor #Put the energy dataset in SI units
         
-        cv = self.CalculateAtConstantVolume(energyDataset, temperature, energyConversionFactor)
-        cp = cv + (totalAtoms/Na) * kb
+        cv = self.CalculateAtConstantVolume(eD, temperature, 1.0)
+        cp = cv + (totalAtoms) * kb
         
         return cp
     

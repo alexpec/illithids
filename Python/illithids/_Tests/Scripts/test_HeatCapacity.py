@@ -38,7 +38,7 @@ class TestHeatCapacity(unittest.TestCase):
         totalAtoms = 3000
         
         
-        cp_exp = 40.23016
+        cp_exp = 65.17355
         cp = heatCap.CalculateAtConstantPressure(energyArray, temperature, totalAtoms)
         
         self.assertAlmostEqual(cp, cp_exp, 3)

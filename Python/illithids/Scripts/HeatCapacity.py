@@ -18,17 +18,9 @@ class HeatCapacity(object):
         
         eD = energyDataset * energyConversionFactor #Put the energy dataset in SI units
         
-        e_2_m = numpy.power(eD, 2)
-        e_2_m = numpy.mean(e_2_m)
-        
-        e_m_2 = numpy.mean(eD)
-        e_m_2 = math.pow(e_m_2, 2.0)
-        
-        dmq = e_2_m - e_m_2
-        dmq = dmq * energyConversionFactor
+        dmq = numpy.var(eD)
         
         cv = dmq / (kb * math.pow(temperature, 2))
-        
         
         return cv
     
